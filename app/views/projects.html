@@ -1,0 +1,24 @@
+<ul class="list-unstyled">
+  <li ng-repeat="project in projects">
+    <!-- <pre>{{ project | json }}</pre> -->
+
+    <h2>{{ project.title }}</h2>
+    <h3>{{ project.description }}</h3>
+
+    <ul class="list-unstyled">
+      <li>
+        <a ng-href="{{ project.appstoreUrl }}">{{ project.appstoreUrl }}</a>
+      </li>
+      <li>
+        <a ng-href="{{ project.webUrl }}">{{ project.webUrl }}</a>
+      </li>
+    </ul>
+
+    <ul class="list-unstyled">
+      <li ng-repeat="img in project.images">
+        <img ng-src="{{ img.url }}" alt="" ng-class="{'img-mobile': img.type == 'mobile', 'img-desktop': img.type == 'desktop'}">
+      </li>
+    </ul>
+
+  </li>
+</ul>

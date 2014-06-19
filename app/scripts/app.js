@@ -1,14 +1,22 @@
 'use strict';
 
-/**
- * @ngdoc overview
- * @name hipoApp
- * @description
- * # hipoApp
- *
- * Main module of the application.
- */
 angular
   .module('hipoApp', [
-    'ngTouch'
-  ]);
+    'ngTouch',
+    'ui.router'
+  ])
+  .config(['$urlRouterProvider', '$stateProvider',
+          function ($urlRouterProvider, $stateProvider) {
+
+    // Default route
+    $urlRouterProvider.otherwise('/');
+
+    // UI Router Config
+    $stateProvider
+      .state('projects', {
+        url: '/',
+        templateUrl: 'views/projects.html',
+        controller: 'ProjectsCtrl'
+      });
+
+  }]);
